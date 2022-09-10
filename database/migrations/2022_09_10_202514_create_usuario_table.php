@@ -13,9 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('grupos', function (Blueprint $table) {
+        Schema::create('usuario', function (Blueprint $table) {
           $table->integer('id');
-          $table->tinyInteger('classificacao');
+          $table->string('nome', 200);
+          $table->integer('idade');
+          $table->string('email', 150);
+          $table->tinyInteger('status');
+          $table->tinyInteger('nivel');
           $table->timestamps();
         });
     }
@@ -27,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('grupos');
+        Schema::dropIfExists('usuario');
     }
 };

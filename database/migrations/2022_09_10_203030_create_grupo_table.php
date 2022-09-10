@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nivels', function (Blueprint $table) {
+        Schema::create('grupo', function (Blueprint $table) {
           $table->integer('id');
           $table->tinyInteger('classificacao');
           $table->timestamps();
+         
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nivels');
+        Schema::dropIfExists('grupo');
     }
 };

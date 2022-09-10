@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('estoque_has_alimmentos', function (Blueprint $table) {
-          $table->integer('tb_estoque_id');
-          $table->integer('tb_alimentos_id');
+        Schema::create('nivel', function (Blueprint $table) {
+          $table->integer('id');
+          $table->tinyInteger('classificacao');
           $table->timestamps();
+    
         });
     }
 
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('estoque_has_alimmentos');
+        Schema::dropIfExists('nivel');
     }
 };
