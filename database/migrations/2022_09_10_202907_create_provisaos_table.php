@@ -14,8 +14,12 @@ return new class extends Migration
     public function up()
     {
         Schema::create('provisaos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->integer('id');
+          $table->string('nome_local_armazenamento', 200);
+          $table->integer('estoque_max');
+          $table->integer('estoque_min');
+          $table->integer('estoque_usado');
+          $table->timestamps();
         });
     }
 

@@ -14,8 +14,9 @@ return new class extends Migration
     public function up()
     {
         Schema::create('estoque_has_alimmentos', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+          $table->integer('tb_estoque_id');
+          $table->integer('tb_alimentos_id');
+          $table->timestamps();
         });
     }
 
