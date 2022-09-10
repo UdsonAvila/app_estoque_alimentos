@@ -15,10 +15,13 @@ return new class extends Migration
     {
         Schema::create('alimentos', function (Blueprint $table) {
           $table->integer('id');
+          $table->unsignedBigInteger('tb_grupo_id');
           $table->string('nome_alimento', 200);
       
     
           $table->timestamps();
+
+          $table->foreign('tb_grupo_id')->references('id')->on('grupo');
         });
     }
 

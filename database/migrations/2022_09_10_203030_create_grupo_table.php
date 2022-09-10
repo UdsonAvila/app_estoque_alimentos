@@ -15,9 +15,10 @@ return new class extends Migration
     {
         Schema::create('grupo', function (Blueprint $table) {
           $table->integer('id');
+          $table->unsignedBigInteger('tb_nivel_id');
           $table->tinyInteger('classificacao');
           $table->timestamps();
-         
+          $table->foreign('tb_nivel_id')->references('id')->on('nivel');
         });
     }
 

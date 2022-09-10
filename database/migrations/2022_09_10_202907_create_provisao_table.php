@@ -15,11 +15,14 @@ return new class extends Migration
     {
         Schema::create('provisao', function (Blueprint $table) {
           $table->integer('id');
+          $table->unsignedBigInteger('tb_usuarios_id');
           $table->string('nome_local_armazenamento', 200);
           $table->integer('estoque_max');
           $table->integer('estoque_min');
           $table->integer('estoque_usado');
           $table->timestamps();
+
+          $table->foreign('tb_usuarios_id')->references('id')->on('usuario');
         });
     }
 
