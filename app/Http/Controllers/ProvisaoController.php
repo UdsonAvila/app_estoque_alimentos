@@ -17,15 +17,7 @@ class ProvisaoController extends Controller
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+   
 
     /**
      * Store a newly created resource in storage.
@@ -49,16 +41,7 @@ class ProvisaoController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Provisao  $provisao
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Provisao $provisao)
-    {
-        //
-    }
+   
 
     /**
      * Update the specified resource in storage.
