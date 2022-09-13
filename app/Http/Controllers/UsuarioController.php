@@ -42,8 +42,14 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-       return $this->usuario->find($id);
+    { 
+        $usuarioShow =  $this->usuario->find($id);
+
+        if($usuarioShow === null) {
+          $usuarioShow = ['error' => 'Não encontrado'];
+        }
+
+       return $usuarioShow;
 
     }
 
@@ -59,7 +65,12 @@ class UsuarioController extends Controller
     public function update(Request $request, $id)
     {
         $usuarioUpdate = $this->usuario->find($id);
+        
+        if($usuarioUpdate === null) {
+         return ['error' => 'Não foi possível atualizar'];
+        }
         return  $usuarioUpdate->update($request->all());
+       
     }
 
     /**
@@ -71,6 +82,12 @@ class UsuarioController extends Controller
     public function destroy($id)
     {
       $usuarioDelete = $this->usuario->find($id);
+
+      if($usuarioDelete === null) {
+        return ['error' => 'Não é possível realizar a operação'];
+       }
+      
       return  $usuarioDelete->delete();
     }
+
 }
