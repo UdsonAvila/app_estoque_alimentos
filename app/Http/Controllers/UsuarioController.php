@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class UsuarioController extends Controller
 {
+
+    public function __construct(Usuario $usuario){
+
+      $this->usuario =  $usuario;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,18 +19,10 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        //
+        return $this->usuario->all();
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -35,51 +32,45 @@ class UsuarioController extends Controller
      */
     public function store(Request $request)
     {
-        return 'teste metodo post';
+      return $this->usuario->create($request->all());
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  Integer
      * @return \Illuminate\Http\Response
      */
-    public function show(Usuario $usuario)
+    public function show($id)
     {
-        //
+       return $this->usuario->find($id);
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Usuario  $usuario
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Usuario $usuario)
-    {
-        //
-    }
+  
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Usuario  $usuario
+     * @param  Integer
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Usuario $usuario)
+    public function update(Request $request, $id)
     {
-        //
+        $usuarioUpdate = $this->usuario->find($id);
+        return  $usuarioUpdate->update($request->all());
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Usuario  $usuario
+     * @param  Integer
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Usuario $usuario)
+    public function destroy($id)
     {
-        //
+      $usuarioDelete = $this->usuario->find($id);
+      return  $usuarioDelete->delete();
     }
 }
