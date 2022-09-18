@@ -17,15 +17,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/perfil/usuario', function () {
+Route::get('/perfil', function () {
   return view('app/perfil');
 });
-Route::get('/cadastro/usuario', function () {
-  return view('app/perfil');
+Route::get('/provisoes', function () {
+  return view('app/provisoes');
+});
+Route::get('/alimentos/cadatro', function () {
+  return view('app/cadastro_alimentos');
+});
+
+Route::get('/lista_compras', function () {
+  return view('app/lista_compras');
 });
 
 Route::get('/teste', function () {
-  return view('app/perfil');
+  return view('app/teste');
 });
 Auth::routes();
 
